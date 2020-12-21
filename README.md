@@ -59,14 +59,14 @@ After that you can initiate your first project on a new and empty folder with np
 
 You can simply do this with the Terminal by going to the newly created folder and then running the following command:
 
-```bash
+```java
 $ npm init
 ```
 Now you can input all the project details and you also can just hit Enter
 
 After the setup you should now have a package.json. file with content that looks similar to this:
 
-```bash
+```java
 {
   "name": "LearnScraping.com",
   "version": "1.0.0",
@@ -91,7 +91,7 @@ Here’s what we’re going to need
 - puppeteer
 So we are going to use npm install
 
-```bash
+```java
 $ npm install puppeteer --save
 ```
 While this is installing I’m going to take the time and explain to you What is Puppeteer
@@ -129,7 +129,7 @@ Learning the Selectors and how they work is very useful for this if you want to 
 
 Here’s what I’ve built.  
 Paste this into the DevTools Console and run
-```bash
+```java
 const puppeteer = require('puppeteer');
 const IMDB_URL = (movie_id) => `https://www.imdb.com/title/${movie_id}/`;
 const MOVIE_ID = `tt6763664`;
@@ -157,8 +157,11 @@ const MOVIE_ID = `tt6763664`;
 })();
 ```
 You can test out exactly this code and after running it you should see something like this
+```java
+npm start
+```
 
-```bash
+```java
 connorstom@penguin:~/aprojects/imdb-scraper$ npm start
 
 > imdb-scraper@1.0.0 start
@@ -183,7 +186,7 @@ There are multiple ways of running the code and I am going to show you 2 ways of
 ### Via the terminal
 You can use the terminal to run it like you’ve probably heard of and you can do that with a simple command just like this:
 
-```bash
+```java
 $ node index.js
 ```
 And of course, you need to make sure you are in the right project directory with your terminal before actually running the code.
@@ -198,31 +201,33 @@ You can run it very easily with VSCode by clicking the Debugger tab and then jus
 
 And of course, you can change the actual movie that you want to scrape by easily editing this part of the code:
 
-```bash
+```java
 const MOVIE_ID = `tt6763664`;
 ```
 Where you can input your actual movie id that you get from any IMDB Movie Urls that look like:
 
+```java
 https://www.imdb.com/title/tt6763664/?ref_=nv_sr_1
-Where the actual movie id is this tt6763664.
+# Where the actual movie id is this tt6763664.
+```
 
 ## How to visually debug with Puppeteer
 Before I’m going to end this short tutorial, I want to give you the best snippets of code that you can use when building scrapers with Puppeteer.
 
 Go ahead and replace the line where you initialize the browser, with this:
 
-```bash
+```java
 const browser = await puppeteer.launch({headless: false}); // default is true
 ```
 What is this going to do?
 
-This is basically going to tell the Chromium browser to NOT use the headless mode, meaning it will show up on your screen and do all the commands you tell it to so that you can see it visually.
+- This is basically going to tell the Chromium browser to NOT use the headless mode, meaning it will show up on your screen and do all the commands you tell it to so that you can see it visually.
 
 Why is this powerful?
 
-Because of the simple fact that you can see and pause with a debugger on any point of the execution and check out what is exactly happening with your code.
+- Because of the simple fact that you can see and pause with a debugger on any point of the execution and check out what is exactly happening with your code.
 
-This is very powerful when building it for the first time and when checking for errors.
+- This is very powerful when building it for the first time and when checking for errors.
 
 You should not use this mode in a production build, use it for development only.
 
@@ -231,7 +236,7 @@ This is the reason Puppeteer is so cool, it is a browser that renders each page 
 
 Why is this helpful?
 
-With Puppeteer you can wait for certain elements on the page to be loaded up / rendered until you start scraping.
+- With Puppeteer you can wait for certain elements on the page to be loaded up / rendered until you start scraping.
 
 This is a massive advantage when you are dealing with
 
@@ -248,7 +253,7 @@ You want to make sure that all that content is loaded fully before it starts to 
 
 You can easily handle this with the following statements
 
-```bash
+```java
 /* Going to a website that loads dynamic content */
 await page.goto('https://booking.com');
 /* Waiting for a specific part of the website to appear on screen */
@@ -256,7 +261,7 @@ await page.waitFor('#content');
 /* More than that, you can wait for a predicate custom function until its true */
 await page.waitFor(() => document.querySelector('#content'));
 /* This above part can be helpful when dealing with more complex checks, in most cases you will not use it */
-```bash
+```
 
 ## More debugging tips
 I feel like when you are starting out, debugging tips are the best because you try to do certain things and you don’t know for sure if they work and you just want to have the tools to debug your work and make it happen.
@@ -264,10 +269,12 @@ I feel like when you are starting out, debugging tips are the best because you t
 ### Slowing down everything
 When you are doing scrapers with Puppeteer, you have the option to give a delay to the browser so that it slows down every action that you program it to do.
 
+```java
 const browser = await puppeteer.launch({
    headless: false,
    slowMo: 250 // 250ms slow down
  });
+ ```
 And this is basically going to slow it down by 250ms
 
 ### Making use of an integrated debugger;
@@ -301,11 +308,12 @@ Taking a screenshot of the current page opened with Puppeteer can be very useful
 
 Why is this useful?
 
-It’s because, besides web scraping, you can use is for rendering dynamic pages and generate screenshots / previews for any page that you want to access.
+- It’s because, besides web scraping, you can use is for rendering dynamic pages and generate screenshots / previews for any page that you want to access.
 
 You can easily do that with the following command
-
+```java
   await page.screenshot({ path: 'screenshot.png' });
+```
 And you can place this wherever in the code where you want to take a screenshot and save it. 
 
 You can also check out the other parameters for the screenshot function from the actual Puppeteer .screenshot() function because there are a lot of other interesting parameters that you can give and make use of.
@@ -315,14 +323,18 @@ Connecting to a proxy can help in many cases where you either want to avoid gett
 
 It can be easily done with just one line of extra arguments passing when initiating the puppeteer browser.
 
+```java
 const browser = await puppeteer.launch({
     args: [ '--proxy-server=127.0.0.1:9876' ]
 });
+```
 If you have a username and password for your proxy server, then it would look something like this:
 
+```java
 const browser = await puppeteer.launch({
     args: [ '--proxy-server=USERNAME:PASSWORD@IP:PORT' ]
 });
+```
 Where of course you would have to replace the USERNAME, PASSWORD and the IP & PORT.
 
 ### Navigating to new pages
@@ -338,9 +350,11 @@ The tricky part is to make sure the new page has been loaded properly and it act
 
 At first, you can do something like this:
 
+```java
 await page.click(SELECTOR_HERE);
 await page.waitForNavigation({ waitUntil: 'networkidle0' });
 Which will basically click on a selector that is a link and starts the navigation to the next page.
+```
 
 With the waitForNavigation function you are basically waiting for the next page to load and to waitUntil there are no extra requests in the background for at least 500 ms.
 
@@ -350,10 +364,12 @@ In that case, the best option that I see ( and correct me or add to it in the co
 
 Here is how you can do that
 
+```java
 await page.click(SELECTOR_HERE);
 await page.waitForNavigation({ waitUntil: 'networkidle0' });
 await page.waitFor(SELECTOR);
 Where you would need to specify a selector that is only available on the next page you are expecting to be loaded.
+```
 
 ## What you shouldn’t do
 And of course, it comes to this part where I need to tell you that Scraping is a gray area and not everyone accepts it.
@@ -364,9 +380,9 @@ Don’t overdo it, know when to stop and what is exceeding the limit.
 
 But how can I know that?
 
-Think of what it actually means to go and scrape 10.000 users or images from someone else’s site and how will that impact the person running the site.
+- Think of what it actually means to go and scrape 10.000 users or images from someone else’s site and how will that impact the person running the site.
 
-Think of what you would not like to have someone do to your website and don’t do that to others too.
+- Think of what you would not like to have someone do to your website and don’t do that to others too.
 
 If it seems shady, it probably is and you should probably not do it.
 
@@ -378,6 +394,6 @@ Here is a list of resources that will definitely help you with nodejs scraping w
 These will set the base of your scraping knowledge and improve your existing one.
 
 ## Want to learn more?
-4 Easy Steps to Web Scraping with Request
-How to build an Instagram Bot with Puppeteer
-Top 2019 NodeJs Scraping Libraries
+- 4 Easy Steps to Web Scraping with Request
+- How to build an Instagram Bot with Puppeteer
+- Top 2019 NodeJs Scraping Libraries

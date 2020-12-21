@@ -3,7 +3,7 @@ const IMDB_URL = (movie_id) => `https://www.imdb.com/title/${movie_id}/`;
 const MOVIE_ID = `tt6763664`;
 (async () => {
   /* Initiate the Puppeteer browser */
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({headless: false});
   const page = await browser.newPage();
   /* Go to the IMDB Movie page and wait for it to load */
   await page.goto(IMDB_URL(MOVIE_ID), { waitUntil: 'networkidle0' });
