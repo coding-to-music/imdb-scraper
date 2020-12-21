@@ -32,40 +32,10 @@ Web Scraping is basically the process of extracting data from a website, that’
 
 Today we’re going to look at how you can start scraping with Puppeteer for NodeJs
 
-Featured on
-
 This article was featured already on multiple pages such as:
+- Javascript Daily’s Twitter
+- NodeJs Weekly – Issue #279
 
-Javascript Daily’s Twitter
-
-
-NodeJs Weekly – Issue #279
-
-
-Thank you to everyone! 🔥
-
-Table of contents
-
-What is Puppeteer?
-Setup of the project
-Installing dependencies
-Preparing the example
-Building the IMDB Scraper
-How to run it
-Via the terminal
-Via an editor ( VSCode )
-How to visually debug with Puppeteer
-Scraping dynamically rendered pages
-More debugging tips
-Slowing down everything
-Making use of an integrated debugger;
-Bonus snippets
-Taking screenshots
-Connecting to a proxy
-Navigating to new pages
-What you shouldn’t do
-Resources to Learn
-Want to learn more?
 ## What is Puppeteer?
 Puppeteer is a library created for NodeJs which basically gives you the ability to control everything on the Chrome or Chromium browser, with NodeJs.
 
