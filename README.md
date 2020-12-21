@@ -41,13 +41,13 @@ Puppeteer is a library created for NodeJs which basically gives you the ability 
 
 You can do things like a normal browser would do and a normal human would, for example:
 
-Open up different pages ( multiple at the same time )
-Move the mouse and make use of it just like a human would
-Press the keyboard and type stuff into input boxes
-Take screenshots programmatically for different situations
-Generate PDF’s from website pages
-Automate specific actions for websites
-and many many more things
+- Open up different pages ( multiple at the same time )
+- Move the mouse and make use of it just like a human would
+- Press the keyboard and type stuff into input boxes
+- Take screenshots programmatically for different situations
+- Generate PDF’s from website pages
+- Automate specific actions for websites
+- and many many more things
 
 
 Puppeteer is created by the folks from Google and also maintained by them and even though’ the project is still pretty new to the market, it has skyrocketed over all the other competitors ( NightmareJs, Casper..etc ) with over 40 000 stars on github.
@@ -122,12 +122,13 @@ Seems pretty easy, right?
 I’m just going to give you a quick snippet of code and then we’re going to talk about it just a bit.
 
 
-I am using the Google DevTools to check the html content and the classes so that I can generate a query selector for the Title, Rating and RatingCount
+I am using the Google DevTools to check the html content and the classes so that  
+I can generate a query selector for the Title, Rating and RatingCount
 
 Learning the Selectors and how they work is very useful for this if you want to build custom selectors for different parts of the website that you want to scrape.
 
-Here’s what I’ve built.
-
+Here’s what I’ve built.  
+Paste this into the DevTools Console and run
 ```bash
 const puppeteer = require('puppeteer');
 const IMDB_URL = (movie_id) => `https://www.imdb.com/title/${movie_id}/`;
@@ -158,10 +159,15 @@ const MOVIE_ID = `tt6763664`;
 You can test out exactly this code and after running it you should see something like this
 
 ```bash
+connorstom@penguin:~/aprojects/imdb-scraper$ npm start
+
+> imdb-scraper@1.0.0 start
+> node index.js
+
 {
-      rating:"9.0"
-      ratingCount:"48,386"
-      title:"The Haunting of Hill House"
+  title: 'The Haunting of Hill House ',
+  rating: '8.6',
+  ratingCount: '177,105'
 }
 ```
 And of course, you can edit the code and improve it to go and scrape more details.

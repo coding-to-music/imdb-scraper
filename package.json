@@ -1,0 +1,20 @@
+{
+  "name": "imdb-scraper",
+  "version": "1.0.0",
+  "description": "Use Puppetteer to scrape some IMDB data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coding-to-music/imdb-scraper.git"
+  },
+  "author": "Thomas Connors (https://github.com/coding-to-music)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coding-to-music/imdb-scraper/issues"
+  },
+  "homepage": "https://github.com/coding-to-music/imdb-scraper#readme"
+}
