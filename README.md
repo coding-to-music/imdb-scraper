@@ -1,7 +1,8 @@
 # imdb-scraper
 
 # The Definitive Guide to Web Scraping with NodeJs & Puppeteer
- grohsfabian on March 10, 2019
+(The Definitive Guide to Web Scraping with NodeJs & Puppeteer)[https://learnscraping.com/nodejs-web-scraping-with-puppeteer/]  
+ grohsfabian on March 10, 2019  
 - [imdb-scraper](#imdb-scraper)
 - [The Definitive Guide to Web Scraping with NodeJs & Puppeteer](#the-definitive-guide-to-web-scraping-with-nodejs--puppeteer)
   - [What is Puppeteer?](#what-is-puppeteer)
